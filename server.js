@@ -14,3 +14,8 @@ app.use(express.static('public'));
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}.`));
 
+app.get('/api/notes', (req, res) => {
+    res.json(noteDb);
+    // console.log("GET");
+});
+
