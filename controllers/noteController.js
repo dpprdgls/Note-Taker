@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
   readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
 });
 
+//Route to get a single note by id
 router.get('/:id', (req, res) => {
     const noteId = req.params.id;
     readFromFile('./db/db.json').then((data) => JSON.parse(data))
