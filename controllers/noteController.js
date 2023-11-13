@@ -10,15 +10,28 @@ router.get("/", (req, res) => {
 });
 
 //Route to get a single note by id
-router.get('/:id', (req, res) => {
-    const noteId = req.params.id;
-    readFromFile('./db/db.json').then((data) => JSON.parse(data))
+router.get("/:id", (req, res) => {
+  const noteId = req.params.id;
+  readFromFile("./db/db.json")
+    .then((data) => JSON.parse(data))
     .then((json) => {
-        const readedNote = json.filter((note) => note.id === noteId);
-        if (readedNote.length > 0) {
-            res.json(readedNote);
-        } else {
-            res.json('Note not found');
-        }
-        });
+      const readNote = json.filter((note) => note.id === noteId);
+      if (readNote.length > 0) {
+        res.json(readNote);
+      } else {
+        res.json("Note not found");
+      }
+    });
+});
+
+//Route to delete a note by id
+router.delete("/:id", (req, res) => {
+  const noteId = req.params.id;
+  readFromFile("./db/db.json")
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+      const updatedJson = json.filter((note) => note.id !== noteId);
+      writeToFile("./db/db.json", updatedJson);
+      res.json(`Note ${noteId} deleted`);
+    });
 });
