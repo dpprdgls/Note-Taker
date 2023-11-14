@@ -24,6 +24,35 @@ router.get("/:id", (req, res) => {
     });
 });
 
+//Route to add a new note
+router.post("/api/notes", (req, res) => {
+  try {
+    const { title, text } = req.body;
+
+    if (title && text) {
+      const newNote = {
+        title,
+        text,
+        id: short.generate(),
+      };
+
+      readAndAppend("./db/db.json", newNote);
+
+      const response = {
+        status: "success",
+        body: newNote,
+      };
+
+      res.json(response);
+    } else {
+      res.status(400).json({ error: "Please enter a title and text" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 //Route to delete a note by id
 router.delete("/:id", (req, res) => {
   const noteId = req.params.id;
