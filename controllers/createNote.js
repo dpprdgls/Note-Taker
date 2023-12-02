@@ -7,7 +7,7 @@ const createNote = async (req, res) => {
         const { title, text } = req.body;
 
         if (title && text) {
-            const existingNotes = await readFromFile('./db.json').then((data) => JSON.parse(data));
+            const existingNotes = await readFromFile(path.join(__dirname,'../db/db.json')).then((data) => JSON.parse(data));
 
             const newNote = { 
                 id: short.generate(),
@@ -17,7 +17,7 @@ const createNote = async (req, res) => {
 
             existingNotes.push(newNote);
 
-            await writeToFile('./db.json', existingNotes);
+            writeToFile(path.join(__dirname, '../db/db.json'), existingNotes);
 
             res.status(201).json(newNote);
         } else {

@@ -20,8 +20,8 @@ router.get('/notes', (req, res) => {
 
 //route to send the index file if wildcard requested
 
-router.get('*', (req, res) => {
-    console.log('They are wild!');
+router.get(/^(?!\/notes).*$/, (req, res) => {
+    console.log('You are wild!');
     res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
