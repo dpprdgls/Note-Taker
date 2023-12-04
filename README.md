@@ -21,7 +21,7 @@
     
     *Steps required to install project and how to get the development environment running:*
     
-    ![Link](https://dpprdgls.github.io/Note-Taker/)
+    ![Link](https://note-taker-app-cd-5f2cc183933b.herokuapp.com/)
 
     You can clone the repository to you local hard drive or visit the link above to test out the project.
     
