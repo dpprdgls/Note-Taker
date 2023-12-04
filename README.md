@@ -8,7 +8,7 @@
 
   *The purpose, the motivation, the execution:*
 
-  This project was developed to allow users to create and delete notes and serves as an organizational utility. 
+   Our lives are very busy and we struggle to remember all the things we must complete throughout the week. This project created with Node.js and using Express hopes to remedy that issue. This project was developed to allow users to create and delete notes and serves as an organizational utility.
 
   ## Table of Contents
   * [Installation](#installation)
@@ -26,7 +26,6 @@
     You can clone the repository to you local hard drive or visit the link above to test out the project.
     
     ## Usage
-    
 
     ![Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.](./public/assets/img/Example1.PNG)
 
