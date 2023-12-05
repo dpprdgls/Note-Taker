@@ -13,8 +13,6 @@
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
-  * [Contributions](#contributions)
-  * [Tests](#tests)
   * [License](#license)
     
     ## Installation
